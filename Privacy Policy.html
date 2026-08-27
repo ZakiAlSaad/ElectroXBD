@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Privacy Policy | ElectroX BD</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --primary:#2563eb;
+    --primary-dark:#1d4ed8;
+    --bg:#f8fafc;
+    --surface:#ffffff;
+    --text:#1e293b;
+    --muted:#64748b;
+    --border:#e2e8f0;
+    --code:#eff6ff;
+}
+
+body.dark{
+    --bg:#0f172a;
+    --surface:#111827;
+    --text:#f1f5f9;
+    --muted:#94a3b8;
+    --border:#334155;
+    --code:#172554;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Inter",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+    transition:.3s;
+}
+
+/* Header */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(255,255,255,.9);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid var(--border);
+}
+
+body.dark header{
+    background:rgba(15,23,42,.9);
+}
+
+.nav{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 22px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    background:linear-gradient(135deg,#2563eb,#60a5fa);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-weight:800;
+    font-size:18px;
+}
+
+.brand h2{
+    font-size:18px;
+}
+
+.brand span{
+    display:block;
+    font-size:12px;
+    color:var(--muted);
+}
+
+.theme-btn{
+    border:none;
+    background:var(--surface);
+    border:1px solid var(--border);
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* Hero */
+
+.hero{
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    color:white;
+    padding:70px 20px;
+}
+
+.hero-content{
+    max-width:1100px;
+    margin:auto;
+}
+
+.hero h1{
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.hero p{
+    opacity:.9;
+    max-width:700px;
+}
+
+.badge{
+    display:inline-block;
+    margin-top:18px;
+    background:rgba(255,255,255,.15);
+    padding:8px 16px;
+    border-radius:50px;
+    font-size:14px;
+}
+
+/* Layout */
+
+.container{
+    max-width:1200px;
+    margin:40px auto;
+    padding:0 20px;
+    display:grid;
+    grid-template-columns:260px 1fr;
+    gap:35px;
+}
+
+/* Sidebar */
+
+.sidebar{
+    position:sticky;
+    top:90px;
+    height:max-content;
+}
+
+.sidebar h3{
+    margin-bottom:15px;
+}
+
+.sidebar a{
+    display:block;
+    text-decoration:none;
+    color:var(--muted);
+    padding:9px 12px;
+    border-radius:8px;
+    margin-bottom:4px;
+    font-size:14px;
+}
+
+.sidebar a:hover,
+.sidebar a.active{
+    background:var(--code);
+    color:var(--primary);
+    font-weight:600;
+}
+
+/* Content */
+
+.content{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:40px;
+}
+
+section{
+    margin-bottom:45px;
+    scroll-margin-top:110px;
+}
+
+section h2{
+    font-size:24px;
+    margin-bottom:16px;
+}
+
+section p{
+    margin-bottom:15px;
+    color:var(--text);
+}
+
+ul{
+    padding-left:22px;
+    margin-bottom:15px;
+}
+
+li{
+    margin-bottom:8px;
+}
+
+.info-box{
+    background:var(--code);
+    border-left:4px solid var(--primary);
+    padding:18px;
+    border-radius:10px;
+    margin-top:15px;
+}
+
+.contact-card{
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:22px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.email{
+    font-weight:600;
+    color:var(--primary);
+    text-decoration:none;
+}
+
+.copy-btn{
+    border:none;
+    background:var(--primary);
+    color:white;
+    padding:10px 16px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.copy-btn:hover{
+    background:var(--primary-dark);
+}
+
+/* Footer */
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+    .container{
+        grid-template-columns:1fr;
+    }
+
+    .sidebar{
+        position:relative;
+        top:0;
+        display:flex;
+        overflow:auto;
+        gap:6px;
+        padding-bottom:8px;
+    }
+
+    .sidebar h3{
+        display:none;
+    }
+
+    .sidebar a{
+        white-space:nowrap;
+        border:1px solid var(--border);
+    }
+
+}
+
+@media(max-width:600px){
+
+    .hero{
+        padding:50px 20px;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    .content{
+        padding:24px;
+    }
+
+    section h2{
+        font-size:21px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<div class="brand">
+
+<div class="logo">EX</div>
+
+<div>
+<h2>ElectroX BD</h2>
+<span>Privacy Policy</span>
+</div>
+
+</div>
+
+<button class="theme-btn" id="themeToggle">🌙</button>
+
+</div>
+
+</header>
+
+
+<div class="hero">
+
+<div class="hero-content">
+
+<h1>Privacy Policy</h1>
+
+<p>
+This Privacy Policy explains how ElectroX BD - For Enthusiasts and
+HypnotiXstudio collect, use, protect, and manage your information
+when using our mobile application, website, and related services.
+</p>
+
+<div class="badge">
+Effective Date: August 27, 2026
+</div>
+
+</div>
+
+</div>
+
+
+<div class="container">
+
+<nav class="sidebar">
+
+<h3>Contents</h3>
+
+<a href="#overview">Overview</a>
+<a href="#collection">Information Collection</a>
+<a href="#cookies">Cookies & Tracking</a>
+<a href="#rights">Your Rights</a>
+<a href="#ccpa">CCPA / CPRA</a>
+<a href="#thirdparty">Third Party Access</a>
+<a href="#international">International Transfers</a>
+<a href="#services">Third Party Services</a>
+<a href="#optout">Opt-Out Rights</a>
+<a href="#retention">Data Retention</a>
+<a href="#children">Children</a>
+<a href="#security">Security</a>
+<a href="#breach">Data Breach</a>
+<a href="#changes">Changes</a>
+<a href="#consent">Your Consent</a>
+<a href="#contact">Contact Us</a>
+
+</nav>
+
+
+<main class="content">
+
+<section id="overview">
+
+<h2>Privacy Policy Overview</h2>
+
+<p>
+This privacy policy applies to the ElectroX BD - For Enthusiasts app
+for mobile devices and web browsers, together with any related services
+operated by HypnotiXstudio (collectively, the "Application").
+</p>
+
+<p>
+HypnotiXstudio is referred to throughout this Privacy Policy as
+the <b>Service Provider</b>.
+</p>
+
+</section>
+
+
+<section id="collection">
+
+<h2>Information Collection and Use</h2>
+
+<p>
+The Application collects information when you download and use it.
+This information may include:
+</p>
+
+<ul>
+
+<li>Your device's Internet Protocol (IP) address</li>
+
+<li>The pages of the Application that you visit</li>
+
+<li>The date and time of your visit</li>
+
+<li>The time spent on pages within the Application</li>
+
+<li>The total time spent using the Application</li>
+
+<li>Your device operating system</li>
+
+</ul>
+
+<p>
+The Service Provider may also use information you provide to deliver
+important notices, service updates, and where permitted by applicable law,
+marketing communications.
+</p>
+
+<p>
+For a better experience, the Application may request personally
+identifiable information including but not limited to information related to
+<a class="email" href="https://electroxbd.com" target="_blank">
+https://electroxbd.com
+</a>.
+</p>
+
+</section>
+
+
+<section id="cookies">
+
+<h2>Cookies and Tracking Technologies</h2>
+
+<p>
+The Application or its third-party SDKs may use cookies, SDKs,
+pixels, and similar technologies to support functionality,
+analytics, and service delivery.
+</p>
+
+<div class="info-box">
+
+Where required by applicable law, the Service Provider will obtain
+your consent before using non-essential tracking technologies.
+
+</div>
+
+</section>
+
+
+<section id="rights">
+
+<h2>Your Rights</h2>
+
+<p>
+You may request access to, correction of, or deletion of your
+personal data held by the Service Provider.
+</p>
+
+<p>
+You may also withdraw consent whenever processing is based on consent.
+</p>
+
+<p>
+To exercise these rights, contact us at
+<a class="email" href="mailto:electroxbd@gmail.com">
+electroxbd@gmail.com
+</a>.
+</p>
+
+</section>
+
+
+<section id="ccpa">
+
+<h2>Your California Privacy Rights (CCPA/CPRA)</h2>
+
+<p>
+If you are a California resident, you have the following rights:
+</p>
+
+<ul>
+
+<li>Right to know what personal information is collected</li>
+
+<li>Right to request deletion of personal information</li>
+
+<li>Right to opt out of the sale or sharing of personal information</li>
+
+<li>Right to non-discrimination for exercising privacy rights</li>
+
+</ul>
+
+<p>
+To exercise your CCPA or CPRA rights, contact the Service Provider
+using the email address listed below.
+</p>
+
+</section>
+
+
+<section id="thirdparty">
+
+<h2>Third Party Access</h2>
+
+<p>
+Only aggregated and anonymized information may periodically be
+transmitted to external services to improve the Application
+and its services.
+</p>
+
+<p>
+The Service Provider may also share information with trusted
+third-party service providers as described in this Privacy Policy.
+</p>
+
+</section>
+
+
+<section id="international">
+
+<h2>International Data Transfers</h2>
+
+<p>
+The Service Provider or third-party providers may transfer personal
+data to countries outside your country of residence, including
+outside the European Economic Area (EEA).
+</p>
+
+<p>
+Where required by law, appropriate safeguards will be used including:
+</p>
+
+<ul>
+
+<li>Standard Contractual Clauses (SCCs)</li>
+
+<li>Adequacy decisions recognized by law</li>
+
+<li>Other legally recognized transfer mechanisms</li>
+
+<li>Your consent where legally required</li>
+
+</ul>
+
+</section>
+
+
+<section id="services">
+
+<h2>Third Party Services</h2>
+
+<p>
+The Application uses third-party services which maintain their own
+privacy policies.
+</p>
+
+<ul>
+
+<li>
+<a class="email"
+href="https://www.google.com/policies/privacy/"
+target="_blank">
+Google Play Services
+</a>
+</li>
+
+<li>
+<a class="email"
+href="https://policies.google.com/technologies/partner-sites"
+target="_blank">
+AdMob
+</a>
+</li>
+
+<li>
+<a class="email"
+href="https://firebase.google.com/support/privacy"
+target="_blank">
+Google Analytics for Firebase
+</a>
+</li>
+
+</ul>
+
+<p>
+The Service Provider may disclose information when legally required,
+to protect rights and safety, investigate fraud, or respond to lawful
+government requests.
+</p>
+
+</section>
+
+
+<section id="optout">
+
+<h2>Opt-Out Rights</h2>
+
+<p>
+You may stop further information collection from your mobile device
+by uninstalling the Application.
+</p>
+
+<p>
+For website usage, ceasing to use the website will stop future
+collection from your device, but it does not automatically delete
+previously transmitted information.
+</p>
+
+<p>
+To request deletion of your personal information or withdraw consent,
+contact:
+</p>
+
+<a class="email" href="mailto:electroxbd@gmail.com">
+electroxbd@gmail.com
+</a>
+
+</section>
+
+
+<section id="retention">
+
+<h2>Data Retention Policy</h2>
+
+<ul>
+
+<li>
+<b>User Provided Data:</b>
+Retained during your use of the Application plus 12 months,
+unless longer retention is legally required.
+</li>
+
+<li>
+<b>Automatically Collected Data:</b>
+Retained for up to 24 months.
+</li>
+
+<li>
+<b>Aggregated & Anonymized Data:</b>
+Retained indefinitely because it no longer identifies individuals.
+</li>
+
+<li>
+<b>Legal Compliance Data:</b>
+Retained as long as required under applicable laws.
+</li>
+
+</ul>
+
+<p>
+You may request deletion of personal data subject to legal retention
+requirements.
+</p>
+
+</section>
+
+
+<section id="children">
+
+<h2>Children</h2>
+
+<p>
+The Application is not intended for children under 13 years of age,
+or any higher minimum age required by applicable law.
+</p>
+
+<p>
+The Service Provider does not knowingly collect personally identifiable
+information from children in violation of applicable law.
+</p>
+
+<p>
+Parents or guardians who believe a child has submitted personal
+information should contact us immediately.
+</p>
+
+</section>
+
+
+<section id="security">
+
+<h2>Security</h2>
+
+<p>
+The Service Provider is committed to protecting the confidentiality
+of your information.
+</p>
+
+<p>
+Physical, electronic, and procedural safeguards are implemented
+to protect information processed and maintained by the Application.
+</p>
+
+</section>
+
+
+<section id="breach">
+
+<h2>Data Breach Notification</h2>
+
+<p>
+If a data breach occurs affecting your personal information,
+the Service Provider will notify affected users in accordance
+with applicable legal requirements.
+</p>
+
+</section>
+
+
+<section id="changes">
+
+<h2>Changes to This Privacy Policy</h2>
+
+<p>
+The Service Provider may update this Privacy Policy from time to time.
+Material changes will be communicated by posting an updated version
+with a revised effective date.
+</p>
+
+<p>
+Where legally required, consent will be obtained before material
+changes take effect.
+</p>
+
+<p>
+Previous versions may be requested by contacting the Service Provider.
+</p>
+
+</section>
+
+
+<section id="consent">
+
+<h2>Your Consent</h2>
+
+<p>
+Where processing is based on consent, you provide consent by
+affirmatively opting into the relevant feature or action.
+</p>
+
+<p>
+You may withdraw consent at any time without affecting processing
+that occurred before withdrawal.
+</p>
+
+</section>
+
+
+<section id="contact">
+
+<h2>Contact Us</h2>
+
+<p>
+If you have questions regarding privacy, data collection,
+or this Privacy Policy, please contact the Service Provider.
+</p>
+
+<div class="contact-card">
+
+<div>
+
+<strong>Email</strong>
+
+<br>
+
+<a class="email"
+href="mailto:electroxbd@gmail.com">
+electroxbd@gmail.com
+</a>
+
+</div>
+
+<button class="copy-btn" onclick="copyEmail()">
+Copy Email
+</button>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+
+<footer>
+
+© 2026 ElectroX BD · Operated by HypnotiXstudio
+
+</footer>
+
+
+<script>
+
+/* Dark Mode */
+
+const themeBtn=document.getElementById("themeToggle");
+
+themeBtn.onclick=()=>{
+
+document.body.classList.toggle("dark");
+
+themeBtn.textContent=
+document.body.classList.contains("dark")
+?"☀️":"🌙";
+
+localStorage.setItem(
+"theme",
+document.body.classList.contains("dark")?"dark":"light"
+);
+
+};
+
+if(localStorage.getItem("theme")==="dark"){
+
+document.body.classList.add("dark");
+
+themeBtn.textContent="☀️";
+
+}
+
+
+/* Copy Email */
+
+function copyEmail(){
+
+navigator.clipboard.writeText("electroxbd@gmail.com");
+
+const btn=document.querySelector(".copy-btn");
+
+btn.innerHTML="Copied ✓";
+
+setTimeout(()=>{
+
+btn.innerHTML="Copy Email";
+
+},1800);
+
+}
+
+
+/* Active Navigation */
+
+const sections=document.querySelectorAll("section");
+
+const navLinks=document.querySelectorAll(".sidebar a");
+
+window.addEventListener("scroll",()=>{
+
+let current="";
+
+sections.forEach(section=>{
+
+const top=window.scrollY;
+
+const offset=section.offsetTop-140;
+
+const height=section.offsetHeight;
+
+if(top>=offset && top<offset+height){
+
+current=section.getAttribute("id");
+
+}
+
+});
+
+navLinks.forEach(link=>{
+
+link.classList.remove("active");
+
+if(link.getAttribute("href")==="#"+current){
+
+link.classList.add("active");
+
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
