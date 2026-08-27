@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="Theme.ElectroXBD" parent="android:Theme.Material.Light.NoActionBar" />
+    <!-- Base application theme — uses AppCompat NoActionBar since we have no toolbar -->
+    <style name="Theme.ElectroXBD" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize status bar and navigation bar colors here if desired -->
+        <item name="android:statusBarColor">#FFFFFF</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
 </resources>

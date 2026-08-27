@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectroXBD — Local Mode</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 ElectroXBD — Local Mode Active</h1>
+        <p>This page is loaded from <code>assets/www/index.html</code></p>
+
+        <div class="card">
+            <h2>How to Use Local Mode</h2>
+            <ol>
+                <li>Place your HTML files in: <code>app/src/main/assets/www/</code></li>
+                <li>Place your CSS files in: <code>app/src/main/assets/www/css/</code></li>
+                <li>Place your JS files in: <code>app/src/main/assets/www/js/</code></li>
+                <li>Place your images in: <code>app/src/main/assets/www/img/</code></li>
+                <li>Set <code>Config.APP_MODE = "LOCAL"</code> in <code>Config.kt</code></li>
+                <li>Build and run the app!</li>
+            </ol>
+        </div>
+
+        <div class="card">
+            <h2>Template Info</h2>
+            <ul>
+                <li>Current Mode: <strong>LOCAL</strong></li>
+                <li>Entry File: <code>index.html</code></li>
+                <li>JavaScript: <span id="jsStatus">Checking...</span></li>
+            </ul>
+        </div>
+
+        <p class="footer">Replace this file with your own <code>index.html</code> to get started.</p>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

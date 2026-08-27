@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     MAIN LAYOUT — ElectroXBD WebView Template
+     ─────────────────────────────────────────────────────────────────────────
+     Structure (top to bottom):
+       1. ProgressBar   — Chrome-style thin loading bar at the top
+       2. SwipeRefresh   — Pull-to-refresh wrapper around the WebView
+       3. WebView        — The main content area
+       4. AdView (Banner)— Fixed at the bottom of the screen
+     ═══════════════════════════════════════════════════════════════════════════ -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         CHROME-STYLE PROGRESS BAR
+         A thin horizontal bar at the very top of the screen that animates
+         from 0% to 100% during page loading, then disappears.
+         ═══════════════════════════════════════════════════════════════════ -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_alignParentTop="true"
+        android:max="100"
+        android:progress="0"
+        android:visibility="gone"
+        android:indeterminate="false" />
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         ADMOB BANNER AD — Fixed at the bottom of the screen
+         This container is hidden by default and only shown when a valid
+         Banner Ad Unit ID is provided in Config.kt
+         ═══════════════════════════════════════════════════════════════════ -->
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        ads:adSize="BANNER" />
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         SWIPE-TO-REFRESH + WEBVIEW
+         The SwipeRefreshLayout wraps the WebView so the user can pull
+         down from the top (Chrome-style) to reload the current page.
+         ═══════════════════════════════════════════════════════════════════ -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/progressBar"
+        android:layout_above="@id/adView">
+
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</RelativeLayout>
