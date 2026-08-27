@@ -165,9 +165,10 @@ class Admob {
      *      (controlled by [Config.INTERSTITIAL_INTERVAL_SECONDS])
      *
      * @param activity The hosting Activity to display the ad on.
+     * @param onDismiss Optional callback to execute when the ad is dismissed.
      * @return true if the interstitial was shown, false otherwise.
      */
-    fun showInterstitialIfReady(activity: Activity): Boolean {
+    fun showInterstitialIfReady(activity: Activity, onDismiss: (() -> Unit)? = null): Boolean {
         // Safety check: skip if interstitial ads are disabled
         if (!Config.isInterstitialEnabled()) return false
 
@@ -184,6 +185,25 @@ class Admob {
 
         // All conditions met — show the interstitial
         lastInterstitialTime = now
+
+        // Override callback if onDismiss is provided
+        if (onDismiss != null) {
+            ad.fullScreenContentCallback = object : FullScreenContentCallback() {
+                override fun onAdDismissedFullScreenContent() {
+                    Log.d(TAG, "Interstitial dismissed (with callback).")
+                    interstitialAd = null
+                    onDismiss()
+                    loadInterstitial(activity)
+                }
+
+                override fun onAdFailedToShowFullScreenContent(adError: com.google.android.gms.ads.AdError) {
+                    Log.e(TAG, "Interstitial failed to show: ${adError.message}")
+                    interstitialAd = null
+                    onDismiss()
+                }
+            }
+        }
+
         ad.show(activity)
         Log.d(TAG, "Interstitial ad displayed.")
         return true

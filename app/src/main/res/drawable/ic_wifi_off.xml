@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Wi-Fi signal -->
+    <path
+        android:fillColor="@color/accent_yellow"
+        android:pathData="
+            M12,3
+            C16.42,3 20.42,4.79 23.31,7.69
+            L21.89,9.11
+            C19.37,6.59 15.89,5 12,5
+            C10.91,5 9.85,5.12 8.83,5.35
+            L7.16,3.68
+            C8.68,3.24 10.29,3 12,3
+            Z" />
+
+    <!-- Middle Wi-Fi arc -->
+    <path
+        android:fillColor="@color/accent_yellow"
+        android:pathData="
+            M12,7
+            C15.33,7 18.35,8.35 20.54,10.54
+            L19.12,11.96
+            C17.29,10.13 14.77,9 12,9
+            C11.55,9 11.11,9.03 10.68,9.09
+            L9.02,7.43
+            C9.97,7.15 10.96,7 12,7
+            Z" />
+
+    <!-- Lower Wi-Fi arc -->
+    <path
+        android:fillColor="@color/accent_yellow"
+        android:pathData="
+            M12,11
+            C14.25,11 16.29,11.91 17.76,13.38
+            L16.34,14.8
+            C15.23,13.69 13.72,13 12,13
+            C11.72,13 11.44,13.02 11.17,13.06
+            L9.51,11.4
+            C10.3,11.14 11.13,11 12,11
+            Z" />
+
+    <!-- Wi-Fi dot -->
+    <path
+        android:fillColor="@color/accent_yellow"
+        android:pathData="
+            M12,16
+            A2,2 0,1 0,12,20
+            A2,2 0,1 0,12,16
+            Z" />
+
+    <!-- Clean diagonal OFF slash -->
+    <path
+        android:fillColor="@color/accent_yellow"
+        android:pathData="
+            M3.71,2.29
+            L2.29,3.71
+            L20.29,21.71
+            L21.71,20.29
+            Z" />
+
+</vector>

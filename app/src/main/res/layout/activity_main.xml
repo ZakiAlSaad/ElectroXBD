@@ -7,6 +7,7 @@
        2. SwipeRefresh   — Pull-to-refresh wrapper around the WebView
        3. WebView        — The main content area
        4. AdView (Banner)— Fixed at the bottom of the screen
+       5. No Internet    — Full-screen overlay shown when offline
      ═══════════════════════════════════════════════════════════════════════════ -->
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -63,5 +64,170 @@
             android:layout_height="match_parent" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         NO INTERNET CONNECTION OVERLAY
+         Full-screen overlay shown when there is no network connectivity.
+         Features an animated icon, friendly messaging, and action buttons
+         to connect to Wi-Fi/Mobile Data settings or retry loading.
+         ═══════════════════════════════════════════════════════════════════ -->
+    <ScrollView
+        android:id="@+id/noInternetLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_no_internet"
+        android:fillViewport="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="32dp">
+
+            <!-- Spacer to push content toward center -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1.5" />
+
+            <!-- ── Icon Container with dark backdrop ── -->
+            <FrameLayout
+                android:id="@+id/iconContainer"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_gravity="center">
+
+                <View
+                    android:id="@+id/iconBackdrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_gradient_circle" />
+
+                <ImageView
+                    android:id="@+id/noInternetIcon"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_wifi_off"
+                    android:contentDescription="@string/no_internet_icon_desc" />
+
+            </FrameLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="40dp" />
+
+            <!-- ── Title ── -->
+            <TextView
+                android:id="@+id/noInternetTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_internet_title"
+                android:textSize="26sp"
+                android:textColor="@color/text_primary_dark"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="12dp" />
+
+            <!-- ── Subtitle / Description ── -->
+            <TextView
+                android:id="@+id/noInternetSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_internet_subtitle"
+                android:textSize="16sp"
+                android:textColor="@color/text_secondary"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:lineSpacingExtra="4dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="48dp" />
+
+            <!-- ── Connect to Wi-Fi Button (Primary) ── -->
+            <Button
+                android:id="@+id/btnConnectWifi"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/btn_connect_wifi"
+                android:textColor="@color/btn_text_on_yellow"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:fontFamily="sans-serif-medium"
+                android:background="@drawable/btn_primary_rounded"
+                android:elevation="4dp"
+                android:stateListAnimator="@null" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="12dp" />
+
+            <!-- ── Mobile Data Button (Primary) ── -->
+            <Button
+                android:id="@+id/btnMobileData"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/btn_mobile_data"
+                android:textColor="@color/btn_text_on_yellow"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:fontFamily="sans-serif-medium"
+                android:background="@drawable/btn_primary_rounded"
+                android:elevation="4dp"
+                android:stateListAnimator="@null" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="12dp" />
+
+            <!-- ── Retry Button (Secondary / Outlined) ── -->
+            <Button
+                android:id="@+id/btnRetry"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/btn_retry"
+                android:textColor="@color/btn_secondary_text"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:fontFamily="sans-serif-medium"
+                android:background="@drawable/btn_secondary_rounded"
+                android:stateListAnimator="@null" />
+
+            <!-- Spacer to push content toward center -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- ── Bottom hint ── -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_internet_hint"
+                android:textSize="13sp"
+                android:textColor="@color/text_hint"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:paddingBottom="16dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

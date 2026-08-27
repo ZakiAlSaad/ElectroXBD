@@ -1,3 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ElectroX BD</string>
+    <string name="app_name">ElectroXBD</string>
+
+    <!-- No Internet Screen -->
+    <string name="no_internet_title">No Internet Connection</string>
+    <string name="no_internet_subtitle">It looks like you\'re offline.\nPlease turn on Wi-Fi or Mobile Data to continue browsing.</string>
+    <string name="btn_connect_wifi">Turn On Wi-Fi</string>
+    <string name="btn_mobile_data">Turn On Mobile Data</string>
+    <string name="btn_retry">Try Again</string>
+    <string name="no_internet_hint">Make sure you have an active internet connection</string>
+    <string name="no_internet_icon_desc">No internet connection icon</string>
+
+    <!-- Exit Dialog -->
+    <string name="exit_title">Exit App</string>
+    <string name="exit_message">Are you sure you want to exit?</string>
+    <string name="exit_yes">Exit</string>
+    <string name="exit_no">Cancel</string>
 </resources>

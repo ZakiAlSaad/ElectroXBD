@@ -7,4 +7,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- No Internet page — Yellow / Black / White theme -->
+    <color name="accent_yellow">#FFCA28</color>
+    <color name="accent_yellow_dark">#FFB300</color>
+    <color name="bg_no_internet">#FFFFFF</color>
+    <color name="icon_bg_dark">#1A1A1A</color>
+    <color name="text_primary_dark">#1A1A1A</color>
+    <color name="text_secondary">#4B5563</color>
+    <color name="text_hint">#9CA3AF</color>
+    <color name="btn_text_on_yellow">#000000</color>
+    <color name="btn_secondary_border">#1A1A1A</color>
+    <color name="btn_secondary_text">#1A1A1A</color>
 </resources>
