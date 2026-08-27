@@ -11,7 +11,6 @@ import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 import android.os.Bundle
 import android.provider.Settings
-import android.view.KeyEvent
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.webkit.WebChromeClient
@@ -19,6 +18,7 @@ import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.hypnotixstudio.electroxbd.databinding.ActivityMainBinding
 
@@ -225,6 +225,38 @@ class MainActivity : AppCompatActivity() {
         // ─────────────────────────────────────────────────────────────────
         setupNoInternetButtons()
         setupNetworkMonitor()
+
+        // ─────────────────────────────────────────────────────────────────
+        // 8. SETUP MODERN BACK NAVIGATION HANDLING
+        //    Handles both hardware back button and gesture navigation
+        // ─────────────────────────────────────────────────────────────────
+        setupBackNavigation()
+    }
+
+    // ═════════════════════════════════════════════════════════════════════════
+    //  BACK NAVIGATION HANDLING
+    // ═════════════════════════════════════════════════════════════════════════
+
+    /**
+     * Sets up the modern OnBackPressedCallback to handle system back navigation
+     * (hardware buttons and gestures) for both WebView history and exit confirmation.
+     */
+    private fun setupBackNavigation() {
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                when {
+                    // 1. If WebView can go back, navigate back in history
+                    binding.webView.canGoBack() -> {
+                        binding.webView.goBack()
+                    }
+                    // 2. If at the root, show exit confirmation dialog
+                    else -> {
+                        showExitConfirmation()
+                    }
+                }
+            }
+        }
+        onBackPressedDispatcher.addCallback(this, callback)
     }
 
     // ═════════════════════════════════════════════════════════════════════════
@@ -447,33 +479,6 @@ class MainActivity : AppCompatActivity() {
         binding.webView.saveState(outState)
     }
 
-    // ═════════════════════════════════════════════════════════════════════════
-    //  BACK BUTTON HANDLING
-    // ═════════════════════════════════════════════════════════════════════════
-
-    /**
-     * Handles the hardware/software back button press.
-     *
-     * Behavior:
-     *   - If the WebView has browsing history, navigate back within it.
-     *   - If at the first page, show an interstitial ad (if interval allows),
-     *     then exit the app.
-     */
-    @Suppress("DEPRECATION")
-    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (binding.webView.canGoBack()) {
-                // WebView has history — go back one page
-                binding.webView.goBack()
-                return true
-            } else {
-                // At the root page — show exit confirmation dialog
-                showExitConfirmation()
-                return true
-            }
-        }
-        return super.onKeyDown(keyCode, event)
-    }
 
     // ═════════════════════════════════════════════════════════════════════════
     //  LIFECYCLE CALLBACKS
